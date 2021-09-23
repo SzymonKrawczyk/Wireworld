@@ -1,0 +1,44 @@
+Wireworld
+
+Wikipedia: https://en.wikipedia.org/wiki/Wireworld | https://pl.wikipedia.org/wiki/Wireworld
+
+Wireworld to automat komórkowy stosowany do symulacji elementów elektronicznych. Mo¿na za jego pomoc¹ stworzyæ generatory sygna³u czy bramki logiczne, a nawet ca³y komputer!
+
+4 mo¿liwe stany komórki: 
+    pusta,
+    g³owa elektronu,
+    ogon elektronu,
+    przewodnik.
+
+Stany komórki zmieniaj¹ siê w ka¿dym kroku (krok oznacza okreœlony up³yw czasu): 
+pusta -> pusta
+g³owa elektronu -> ogon elektronu
+ogon elektronu -> przewodnik
+przewodnik -> g³owa elektronu, ale tylko wtedy, gdy dok³adnie 1 lub 2 komórki s¹siaduj¹ce s¹ g³owami elektronu
+
+Wszystkie komórki zmieniaj¹ siê jednoczeœnie.
+
+Stosowane s¹siedztwo to s¹siedztwo Moore’a, czyli s¹siadem jest ka¿da komórka, która graniczy z dan¹ bokiem lub wierzcho³kiem.
+
+
+
+~~~
+
+Pocz¹tkowe ustawienie komórek bêdzie odczytywane z pliku.
+
+~~~
+
+
+Klasy:
+
+Cell - klasa przechowuj¹ca stan komórki. 
+
+CellArray - przechowuje tablicê dwuwymiarow¹ komórek.
+
+Game - klasa abstrakcyjna (wymaga implementacji 'wyjœcia' - sposobu wizualizacji tablicy komórek), przechowuje obiekt typu CellArray oraz silnik gry.
+
+GameConsole - dziedziczy po Game, zawiera implementacjê potrzebn¹ do wizualizacji aplikacji w konsoli Windows. Korzysta z klasy ccoolor do kolorowania komórek.
+
+baseColor - klasa abstrakcyjna s³u¿¹ca do zmiany koloru czcionki oraz tla znaku w konsoli.
+ccolor - klasa dziedzicz¹ca po baseColor, zawieraj¹ca zestaw kolorów gotowych do wykorzystania.
+(te dwie klasy koloru utworzy³em wczeœniej na inne zajêcia)
